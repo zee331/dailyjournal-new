@@ -12,7 +12,7 @@ const postSchema = new mongoose.Schema({
   content: String
 });
 
-let conn = await mongoose.connect(process.env.MONGODB)
+let conn = await mongoose.connect(process.env.MONGODB_URI)
 
 const Posts = mongoose.model('Post', postSchema);
 
