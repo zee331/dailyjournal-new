@@ -1,4 +1,4 @@
-//jshint esversion:6
+
 import dotenv from 'dotenv';
 dotenv.config(); 
 import express from "express";
