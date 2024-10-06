@@ -29,16 +29,19 @@ app.use(express.static("public"));
 
 let posts = [];
 
-app.get("/", async (req,res) => {
-  let allPosts = await Posts.find({});
-  console.log(allPosts.length)
-  if (allPosts.length>4){
-    res.render("home", {posts1: allPosts})
-  }else{
-    res.render("home2", {posts1: allPosts})
+app.get("/", async (req, res) => {
+  try {
+    let allPosts = await Posts.find({});
+    if (allPosts.length > 4) {
+      res.render("home", { posts1: allPosts });
+    } else {
+      res.render("home2", { posts1: allPosts });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
   }
-})
-
+});
 
 app.get("/about", function(req,res) {
   res.render("about", {about: aboutContent})
