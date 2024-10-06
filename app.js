@@ -11,8 +11,7 @@ const postSchema = new mongoose.Schema({
   title: String,
   content: String
 });
-
-const mongoose = require('mongoose');
+ 
 
 async function connectToDatabase() {
   try {
